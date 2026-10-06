@@ -1,0 +1,247 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:ital,wght@1,600;1,700&display=swap');
+
+@theme {
+  --color-candy-pink: #f472b6;
+  --color-candy-purple: #c084fc;
+  --color-candy-blue: #38bdf8;
+  --color-candy-peach: #fb923c;
+  --color-candy-mint: #34d399;
+  --color-candy-yellow: #fde047;
+
+  --color-surface-dark: #09090b;
+  --color-surface-mid: #121217;
+  --color-surface-card: #18181b;
+  --color-surface-glass: rgba(255, 255, 255, 0.05);
+
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-body: "Plus Jakarta Sans", sans-serif;
+  --font-accent: "Space Grotesk", sans-serif;
+
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+  --radius-3xl: 2.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background: #070b14;
+    color: #f1f5f9;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  /* ─── Deep Navy & Cyan Glassmorphism ─── */
+  .glass {
+    background: rgba(13, 23, 48, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(56, 189, 248, 0.12);
+  }
+
+  .glass-strong {
+    background: rgba(10, 18, 38, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7);
+  }
+
+  .glass-pill {
+    background: rgba(34, 211, 238, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(34, 211, 238, 0.2);
+  }
+
+  /* ─── Cyan & Sky Blue Gradient Text ─── */
+  .gradient-text {
+    background: linear-gradient(135deg, #ffffff 0%, #38bdf8 50%, #06b6d4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-text-subtle {
+    background: linear-gradient(135deg, #ffffff 40%, #94a3b8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* ─── Deep Navy Background with Diffused Cyan Spotlight ─── */
+  .animated-bg {
+    background: radial-gradient(ellipse 900px 500px at 50% 0%, rgba(6, 182, 212, 0.14) 0%, rgba(14, 165, 233, 0.06) 40%, transparent 75%),
+                radial-gradient(circle 700px at 85% 25%, rgba(59, 130, 246, 0.05) 0%, transparent 60%),
+                radial-gradient(circle 600px at 15% 65%, rgba(6, 182, 212, 0.04) 0%, transparent 60%),
+                #070b14;
+  }
+
+  /* ─── Subtle Ambient Lighting Orbs ─── */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.12;
+    pointer-events: none;
+    animation: float 14s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 550px; height: 550px;
+    background: radial-gradient(circle, #06b6d4, transparent);
+    top: -160px; left: -100px;
+    animation-delay: 0s;
+  }
+
+  .orb-2 {
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, #38bdf8, transparent);
+    top: 40%; right: -120px;
+    animation-delay: -5s;
+  }
+
+  .flash-overlay {
+    animation: flashEffect 0.6s ease-out forwards;
+  }
+
+  .countdown-number {
+    animation: countdownPulse 0.8s ease-in-out forwards;
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255,255,255,0.05) 25%,
+      rgba(255,255,255,0.12) 50%,
+      rgba(255,255,255,0.05) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.8s ease infinite;
+  }
+
+  /* ─── Button Base ─── */
+  .btn-primary {
+    background: linear-gradient(135deg, #06b6d4, #2563eb);
+    color: #ffffff;
+    border: none;
+    border-radius: 9999px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px -5px rgba(6, 182, 212, 0.35), 0 8px 10px -6px rgba(37, 99, 235, 0.35);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 16px 36px -5px rgba(6, 182, 212, 0.45), 0 10px 14px -6px rgba(37, 99, 235, 0.45);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .btn-secondary {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    color: #e2e8f0;
+    border-radius: 9999px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(30, 41, 59, 0.8);
+    border-color: rgba(34, 211, 238, 0.4);
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary:active {
+    transform: translateY(0);
+  }
+
+  /* ─── Bento Card ─── */
+  .bento-card {
+    background: rgba(13, 22, 44, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(56, 189, 248, 0.15);
+    border-radius: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bento-card:hover {
+    border-color: rgba(34, 211, 238, 0.4);
+    box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.7), 0 0 25px -4px rgba(6, 182, 212, 0.18);
+    transform: translateY(-3px);
+  }
+
+  /* ─── Washi Tape Graphic ─── */
+  .washi-tape {
+    width: 90px;
+    height: 24px;
+    background: rgba(253, 224, 71, 0.55);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    border-left: 2px dashed rgba(255, 255, 255, 0.4);
+    border-right: 2px dashed rgba(255, 255, 255, 0.4);
+  }
+
+  /* ─── Card ─── */
+  .card {
+    background: rgba(24, 24, 27, 0.6);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    transition: all 0.25s ease;
+  }
+
+  .card:hover {
+    border-color: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  33% { transform: translateY(-20px) scale(1.05); }
+  66% { transform: translateY(10px) scale(0.97); }
+}
+
+@keyframes flashEffect {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes countdownPulse {
+  0% { transform: scale(2); opacity: 0; }
+  20% { transform: scale(1.2); opacity: 1; }
+  80% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}

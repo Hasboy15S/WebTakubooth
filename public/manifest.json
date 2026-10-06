@@ -1,0 +1,21 @@
+{
+  "name": "TakuBooth — Virtual Photobox",
+  "short_name": "TakuBooth",
+  "description": "Buat photostrip cantik langsung di browser. Ganti background AI, gesture snap, stiker draggable, download PNG & GIF.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0a1e",
+  "theme_color": "#c084fc",
+  "orientation": "portrait-primary",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "categories": ["photo", "entertainment", "lifestyle"]
+}
